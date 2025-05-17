@@ -1,6 +1,8 @@
 # 🧭 Wayfinder: ArUco-Driven Autonomous Navigation in ROS2
 From detection to destination — a TurtleBot3 navigates autonomously using ArUco markers, logical cameras, and waypoint planning in a simulated warehouse.
 
+---
+
 ## 📌 Overview
 This ROS2 project implements an autonomous navigation system in a Gazebo simulation environment, using an ArUco marker to identify the task and trigger a dynamic navigation routine. The robot, a TurtleBot3 Waffle Pi, uses a combination of:
 
@@ -12,6 +14,8 @@ This ROS2 project implements an autonomous navigation system in a Gazebo simulat
 
 All components are orchestrated through a custom ROS2 node written in C++, enabling the robot to detect its mission marker, parse its target route from a config file, locate the parts, and navigate to them autonomously.
 
+---
+
 ## 🎯 Objectives
 * Detect an ArUco marker and determine which navigation task to execute
 * Load a list of waypoints dynamically from a YAML file based on the ArUco ID
@@ -19,6 +23,8 @@ All components are orchestrated through a custom ROS2 node written in C++, enabl
 * Transform part poses into the global map frame
 * Generate and send ordered goals to the follow_waypoints action server
 * Complete the full mission autonomously in Gazebo simulation
+
+---
 
 ## 🗺️ System Architecture
 ```
@@ -37,6 +43,9 @@ Gazebo Simulation Environment
 └── Navigation Stack (Nav2)
     └── Executes path using local + global planners
 ```
+
+---
+
 ## ⚙️ How It Works
 1. Startup Simulation:
 Launches Gazebo with a TurtleBot3 and static ArUco marker.
@@ -53,6 +62,7 @@ Subscribes to ```/logical_camera_X/image``` topics to find all part poses in cam
 5. Navigation:
 Publishes the initial pose and sends the final sequence of transformed goals to the Nav2 stack using the ```/follow_waypoints``` action server.
 
+---
 
 ## 🔧 Build & Run Instructions
 ### 🔨 Build
@@ -70,6 +80,8 @@ Then in a new terminal, run your node:
 
 ```ros2 run group4_final theNode```
 
+---
+
 ## 📋 Dependencies
 * ```ros2_aruco_interfaces```
 
@@ -82,6 +94,8 @@ Then in a new terminal, run your node:
 * ```geometry_msgs, rclcpp, yaml_cpp_vendor```
 
 All specified in ```CMakeLists.txt``` and ```package.xml```.
+
+---
 
 ## 🔗 Video Demo
 ▶️ Watch it in action: [Demo Link]([/guides/content/editing-an-existing-page#modifying-front-matter](https://drive.google.com/file/d/1v56Dp-IDldkRQj9HL9xwYE209jGdJ08N/view?usp=drive_link))
